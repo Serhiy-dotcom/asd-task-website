@@ -1,0 +1,135 @@
+// Mixins
+.style-text(@font-size, @font-weight, @line-height) {
+	font-size: @font-size;
+	font-weight: @font-weight;
+	line-height: @line-height;
+}
+
+.flex-mixin(@justify: space-between, @direction: row) {
+	display: flex;
+	justify-content: @justify;
+	flex-direction: @direction;
+}
+
+.button-mixin(@bg: transparent, @border-color: @black-text) {
+	.style-text(16px, 600, 30px);
+	.flex-mixin(center);
+	align-items: center;
+	width: 250px;
+	height: 55px;
+	text-transform: capitalize;
+	text-decoration: none;
+	background-color: @bg;
+	border: 1px solid @border-color;
+}
+
+.padding-helper-mixin(@value) {
+	header,
+	.container {
+		padding: 0 @value;
+	}
+
+	.baner-text {
+		padding: 0 @value;
+	}
+
+	.review {
+		.container {
+			padding: 120px @value;
+		}
+	}
+
+	.awards {
+		.container {
+			padding: 160px @value;
+		}
+	}
+
+	footer {
+		.aboutYou {
+			&.container {
+				padding: 160px @value;
+			}
+		}
+
+		.footerLinks {
+			&.container {
+				padding: 100px @value 50px;
+			}
+		}
+	}
+}
+
+.margin-helper-mixin(@value) {
+	.partner {
+		margin: @value 0;
+	}
+
+	.travel {
+		.container {
+			margin: @value auto;
+		}
+	}
+
+	.clients {
+		margin: @value 0;
+	}
+
+	.review {
+		.container {
+			padding-top: @value;
+			padding-bottom: @value;
+		}
+	}
+
+	.cases {
+		margin: @value 0;
+	}
+
+	.awards {
+		.container {
+			padding-top: @value;
+			padding-bottom: @value;
+		}
+	}
+
+	.services {
+		margin: @value 0;
+	}
+
+	footer {
+		.aboutYou.container {
+			padding-top: @value;
+			padding-bottom: @value;
+		}
+
+		.footerLinks.container {
+			padding-top: @value;
+			padding-bottom: @value;
+		}
+	}
+}
+
+.header-helper-mixin(@value) {
+	header {
+		.menu {
+			> a {
+				font-size: @value;
+			}
+
+			> div {
+				> a {
+					font-size: @value;
+				}
+
+				ul {
+					li {
+						a {
+							font-size: @value;
+						}
+					}
+				}
+			}
+		}
+	}
+}
